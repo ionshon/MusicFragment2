@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.inu.andoid.musicfragment2.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_musicFragment"
+            app:destination="@id/musicFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_playSongFragment"
+            app:destination="@id/playSongFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_ExoPlayerFragment"
+            app:destination="@id/exoPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.inu.andoid.musicfragment2.playback.MusicFragment"
+        android:label="fragment_music"
+        tools:layout="@layout/fragment_music" >
+        <action
+            android:id="@+id/action_musicFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentMusic"
+            app:argType="com.inu.andoid.musicfragment2.model.Music" />
+    </fragment>
+    <fragment
+        android:id="@+id/playSongFragment"
+        android:name="com.inu.andoid.musicfragment2.playback.PlaySongFragment"
+        android:label="PlaySongFragment" >
+        <argument
+            android:name="currentMusic"
+            app:argType="com.inu.andoid.musicfragment2.model.Music" />
+    </fragment>
+    <fragment
+        android:id="@+id/exoPlayerFragment"
+        android:name="com.inu.andoid.musicfragment2.playback.ExoPlayerFragment"
+        android:label="fragment_exo_player"
+        tools:layout="@layout/fragment_exo_player" >
+        <action
+            android:id="@+id/action_exoPlayerFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentMusic"
+            app:argType="com.inu.andoid.musicfragment2.model.Music" />
+    </fragment>
+</navigation>
